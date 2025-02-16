@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Présentation de Puff Paradise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+        }
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .intro h2 {
+            font-size: 36px;
+            color: #444;
+        }
+        .intro p {
+            font-size: 18px;
+            color: #666;
+        }
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: auto;
+            overflow: hidden;
+        }
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-images img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .carousel-buttons button {
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        .carousel-buttons button:hover {
+            background-color: rgba(0,0,0,0.7);
+        }
+        .features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .feature {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 300px;
+        }
+        .feature h3 {
+            font-size: 24px;
+            margin: 10px 0;
+            color: #444;
+        }
+        .feature p {
+            font-size: 16px;
+            color: #666;
+        }
+        ul {
+            text-align: left;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Smoke Paradise</h1>
+    <p>Découvrez nos puffs 10K et 16K à des prix imbattables !</p>
+</header>
+
+<nav>
+    <a href="index.html">Accueil</a>
+    <a href="presentation.html">Présentation</a>
+</nav>
+
+<section class="intro">
+    <h2>Bienvenue à Puff Paradise</h2>
+    <p>Chez Puff Paradise, nous nous engageons à offrir des produits de qualité supérieure qui redéfinissent l'expérience du vapotage. <br> <br> Découvrez nos puffs 10K et 16K, conçus pour les amateurs de vapotage les plus exigeants.</p>
+</section>
+
+<section class="carousel">
+    <div class="carousel-images">
+        <img src="10.jpg?ex=67b0c212&is=67af7092&hm=b40e4e518123ea8fc63a391973d543e64370d5170bfa22e8d98bf7718c981741&" alt="Puff 10K">
+        <img src="16k.jpg?ex=67b0c209&is=67af7089&hm=dc277997f29d7cd5bd009df599e1c9a2736d2be4837bb22574af7a44caff1793&" alt="Puff 16K">
+    </div>
+    <div class="carousel-buttons">
+        <button onclick="moveCarousel(-1)">&#10094;</button>
+        <button onclick="moveCarousel(1)">&#10095;</button>
+    </div>
+</section>
+
+<section class="features">
+    <div class="feature">
+        <h3>Puff 10K</h3>
+        <p>Avec le Puff 10K, découvrez une nouvelle dimension de saveurs. Profitez de la qualité premium avec une capacité incroyable de 10 000 bouffées, idéale pour ceux qui recherchent un produit durable et performant.</p>
+        <p>✨ <strong>Caractéristiques :</strong></p>
+        <ul>
+            <li>10 000 bouffées par unité</li>
+            <li>Batterie longue durée</li>
+            <li>Disponible en plusieurs saveurs exquises :</li>
+            <ul>
+                <li>Fraise</li>
+                <li>Mangue</li>
+                <li>Menthe</li>
+                <li>Fruit de la passion</li>
+            </ul>
+        </ul>
+    </div>
+    <div class="feature">
+        <h3>Puff 16K</h3>
+        <p>Découvrez l'excellence avec le Puff 16K, conçu pour offrir une expérience de vapotage inégalée. Avec ses 16 000 bouffées, ce produit révolutionnaire est parfait pour ceux qui ne veulent jamais s'arrêter.</p>
+        <p>✨ <strong>Caractéristiques :</strong></p>
+        <ul>
+            <li>16 000 bouffées par unité</li>
+            <li>Design ergonomique et élégant</li>
+            <li>Choix varié de saveurs irrésistibles :</li>
+            <ul>
+                <li>Banane</li>
+                <li>Pastèque</li>
+                <li>Pomme verte</li>
+                <li>Cassis</li>
+            </ul>
+        </ul>
+    </div>
+</section>
+
+<script>
+let currentSlide = 0;
+
+function moveCarousel(direction) {
+    const carousels = document.querySelectorAll('.carousel-images');
+    carousels.forEach(carousel => {
+        const slides = carousel.children;
+        currentSlide = (currentSlide + direction + slides.length) % slides.length;
+        const offset = -currentSlide * slides[0].clientWidth;
+        carousel.style.transform = `translateX(${offset}px)`;
+    });
+}   
+</script>
+
+</body>
+</html>

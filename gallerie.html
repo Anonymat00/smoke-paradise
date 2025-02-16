@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie - Puff Paradise</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .product {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 300px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .product img {
+            width: 100%;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        .product h3 {
+            font-size: 24px;
+            margin: 10px 0;
+            color: #444;
+        }
+        .product p {
+            font-size: 16px;
+            color: #666;
+        }
+        .product button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .product button:hover {
+            background-color: #555;
+        }
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .product img:hover {
+            transform: scale(1.05);
+        }
+        .cta {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+            border-radius: 5px;
+        }
+        .cta h2 {
+            margin: 0 0 10px;
+            font-size: 28px;
+        }
+        .cta p {
+            font-size: 18px;
+            margin: 0 0 20px;
+        }
+        .cta a {
+            background-color: #444;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .cta a:hover {
+            background-color: #555;
+        }
+        .pdf-viewer {
+            display: none;
+            margin-top: 20px;
+        }
+        .pdf-viewer iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+    </style>
+    <script>
+        function showPDF(pdfUrl) {
+            const viewer = document.getElementById('pdf-viewer');
+            const iframe = document.getElementById('pdf-iframe');
+            iframe.src = pdfUrl;
+            viewer.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>Smoke Paradise</h1>
+    <p>Découvrez nos puffs 10K et 16K à des prix imbattables !</p>
+</header>
+
+<nav>
+    <a href="index.html">Accueil</a>
+    <a href="presentation.html">Présentation</a>
+    <a href="gallerie.html">Gallerie</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<div class="container">
+    <section class="gallery">
+        <div class="product">
+            <img src="10.jpg?ex=67b0c212&is=67af7092&hm=b40e4e518123ea8fc63a391973d543e64370d5170bfa22e8d98bf7718c981741&" alt="Puff 10K">
+            <h3>Puff 10K</h3>
+            <p>Découvrez une nouvelle dimension de saveurs avec le Puff 10K. Avec 10 000 bouffées par unité et une batterie longue durée, ce produit est idéal pour ceux qui recherchent qualité et performance.</p>
+            <button onclick="showPDF('fiche_technique_JNR.pdf.pdf')">En savoir plus</button>
+        </div>
+        <div class="product">
+            <img src="16k.jpg?ex=67b0c209&is=67af7089&hm=dc277997f29d7cd5bd009df599e1c9a2736d2be4837bb22574af7a44caff1793&" alt="Puff 16K">
+            <h3>Puff 16K</h3>
+            <p>Avec ses 16 000 bouffées par unité et son design ergonomique, le Puff 16K offre une expérience de vapotage inégalée. Profitez de ses saveurs exquises et de sa performance exceptionnelle.</p>
+            <button onclick="showPDF('fiche_technique_JNR.pdf.pdf')">En savoir plus</button>
+        </div>
+    </section>
+
+    <div id="pdf-viewer" class="pdf-viewer">
+        <iframe id="pdf-iframe" src=""></iframe>
+    </div>
+
+    <section class="cta">
+        <h2>Rejoignez notre communauté !</h2>
+        <p>Suivez-nous sur nos réseaux sociaux pour ne rien manquer de nos nouveautés et offres exclusives.</p>
+        <a href="https://t.me/+kOQ7VCrC-_tjNGZk" target="_blank">Rejoindre notre Telegram</a>
+    </section>
+</div>
+
+</body>
+</html>
