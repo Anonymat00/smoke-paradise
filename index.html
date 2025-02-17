@@ -28,9 +28,6 @@
             margin: 0 15px;
             text-decoration: none;
         }
-        nav a:hover {
-            color: #ddd;
-        }
         section {
             padding: 20px;
             text-align: center;
@@ -90,9 +87,6 @@
         }
         .product img:hover {
             transform: scale(1.05);
-        }
-        .input-container {
-            margin: 10px 0;
         }
         .intro {
             text-align: center;
@@ -158,6 +152,7 @@
 <header>
     <h1>Smoke Paradise</h1>
     <p>Découvrez nos puffs 10K et 16K à des prix imbattables !</p>
+    <br> Pour commandé c'est simple ! cliquer sur "Ajouter au panier" .   <br> Puis demander dans la discussion la quantité et le type de puff que vous souhaiter :) </br>  </br> 
 </header>
 
 <nav>
@@ -189,52 +184,40 @@
     <div class="product" id="product10k">
         <img src="10.jpg" alt="Puff 10K">
         <h3>Puff 10K</h3>
-        <div class="product-content">
-            <div class="input-container">
-                <input type="number" id="quantity10k" placeholder="Quantité" min="1">
-            </div>
-            <button onclick="addToCart('10K', document.getElementById('quantity10k').value);">
-                Ajouter au panier
-            </button>
-        </div>
+        <button onclick="redirectToTawk('JNR 10k');">
+            Ajouter au panier
+        </button>
     </div>
     <div class="product" id="product16k">
         <img src="16k.jpg" alt="Puff 16K">
         <h3>Puff 16K</h3>
-        <div class="product-content">
-            <div class="input-container">
-                <input type="number" id="quantity16k" placeholder="Quantité" min="1">
-            </div>
-            <button onclick="addToCart('16K', document.getElementById('quantity16k').value);">
-                Ajouter au panier
-            </button>
-        </div>
+        <button onclick="redirectToTawk('JNR 16k');">
+            Ajouter au panier
+        </button>
     </div>
 </section>
 
-<!-- Tawk.to Script -->
 <script type="text/javascript">
-var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-(function () {
-    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-    s1.async = true;
-    s1.src = 'https://embed.tawk.to/67af80f27aa8c6190f55af38/default';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin', '*');
-    s0.parentNode.insertBefore(s1, s0);
-})();
-
-function addToCart(product, quantity) {
-    var message = "Produit: " + product + ", Quantité: " + quantity;
-    if (quantity > 0) {
-        Tawk_API.addEvent('command', { product: product, quantity: quantity });
-        Tawk_API.visitor.message(message);
-        window.location.href = "https://tawk.to/chat/67af80f27aa8c6190f55af38/1ik2ovdcu";
-    } else {
-        alert("Veuillez entrer une quantité valide.");
+    function redirectToTawk(product) {
+        var message = encodeURIComponent("Catégorie puff : " + product + " - si vous voulez rajouter des puffs communiquer dans cette discussion pour préciser vos choix.");
+        var tawkUrl = "https://tawk.to/chat/67af80f27aa8c6190f55af38/1ik2ovdcu?text=" + message + "&welcomeMessage=" + message;
+        window.location.href = tawkUrl;
     }
-}
 </script>
 
+<!-- Start of Tawk.to Script -->
+<script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function(){
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/67af80f27aa8c6190f55af38/1ik2ovdcu';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+</script>
+<!-- End of Tawk.to Script -->
+
 </body>
-</html
+</html>
