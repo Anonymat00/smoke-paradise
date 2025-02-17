@@ -195,6 +195,13 @@ s0.parentNode.insertBefore(s1,s0);
         .then(function(response) {
             document.getElementById('success-message').style.display = 'block';
             localStorage.setItem('lastSent', today);
+
+            // Envoyer un e-mail de réponse automatique au client
+            emailjs.send('service_ivmqhfg', 'template_2dpzg8m', {
+                to_name: name,
+                to_email: email,
+                reply_message: 'Merci de nous avoir contactés. Nous vous répondrons dans les plus brefs délais.'
+            });
         }, function(error) {
             alert('Une erreur est survenue lors de l\'envoi du message : ' + JSON.stringify(error));
         });
