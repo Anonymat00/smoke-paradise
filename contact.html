@@ -71,6 +71,26 @@
         .telegram a:hover {
             text-decoration: underline;
         }
+        .success-message {
+            display: none;
+            color: green;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .info-message {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        .warning-message {
+            display: none;
+            color: red;
+            text-align: center;
+            font-size: 16px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -100,6 +120,15 @@
 
             <button type="submit">Envoyer</button>
         </form>
+        <div class="success-message" id="success-message">
+            Envoi réussi ! Patientez pour recevoir une réponse.
+        </div>
+        <div class="info-message">
+            Vous pouvez envoyer un e-mail par jour.
+        </div>
+        <div class="warning-message" id="warning-message">
+            ❗ Attention : Vous ne pouvez envoyer qu'un seul e-mail par jour.
+        </div>
         <div class="telegram">
             <p>Ou contactez-nous directement via Telegram :</p>
             <a href="https://t.me/+kOQ7VCrC-_tjNGZk">Cliquez ici pour nous rejoindre sur Telegram</a>
@@ -121,7 +150,13 @@ s0.parentNode.insertBefore(s1,s0);
 </script>
 <!-- Fin du script Tawk.to -->
 
-<script>
+<!-- Début du script EmailJS -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function(){
+        emailjs.init('EIpPlS7fwgjzdMk9c'); // Utilisation de votre Public Key EmailJS
+    })();
+
     document.getElementById('contact-form').addEventListener('submit', function(e) {
         e.preventDefault();
 
@@ -129,17 +164,28 @@ s0.parentNode.insertBefore(s1,s0);
         const email = document.getElementById('email').value;
         const message = document.getElementById('message').value;
 
-        if (typeof Tawk_API !== 'undefined' && Tawk_API.chat && Tawk_API.visitor) {
-            const tawkMessage = `Nouvelle demande de contact : \nNom : ${name}\nEmail : ${email}\nMessage : ${message}`;
-            Tawk_API.addEvent('ContactFormSubmitted', {name, email, message}, function(){
-                Tawk_API.chat.push({message: tawkMessage});
-                alert('Votre message a été envoyé. Nous vous contacterons rapidement.');
-            });
-        } else {
-            alert('Impossible de se connecter à Tawk.to. Veuillez réessayer plus tard.');
+        const lastSent = localStorage.getItem('lastSent');
+        const today = new Date().toISOString().slice(0, 10);
+
+        if (lastSent && lastSent === today) {
+            document.getElementById('warning-message').style.display = 'block';
+            return;
         }
+
+        emailjs.send('service_ivmqhfg', 'template_mwrixrf', {
+            from_name: name,
+            from_email: email,
+            message: message
+        })
+        .then(function(response) {
+            document.getElementById('success-message').style.display = 'block';
+            localStorage.setItem('lastSent', today);
+        }, function(error) {
+            alert('Une erreur est survenue lors de l\'envoi du message : ' + JSON.stringify(error));
+        });
     });
 </script>
+<!-- Fin du script EmailJS -->
 
 </body>
 </html>
