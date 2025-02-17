@@ -209,25 +209,7 @@
     </div>
 </section>
 
-<!-- Tawk.to Script -->
-<script type="text/javascript">
-var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-(function () {
-    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-    s1.async = true;
-    s1.src = 'https://embed.tawk.to/67af80f27aa8c6190f55af38/default';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin', '*');
-    s0.parentNode.insertBefore(s1, s0);
-})();
-
-function addToCart(product, quantity) {
-    var message = "Produit: " + product + ", Quantité: " + quantity;
-    Tawk_API.addEvent('command', { product: product, quantity: quantity });
-    Tawk_API.visitor.message(message);
-    window.location.href = "https://tawk.to/chat/67af80f27aa8c6190f55af38/default";
-}
-</script>
+<script src="scripts.js"></script>
 
 </body>
 </html>
