@@ -19,8 +19,14 @@
         header {
             background-color: #333;
             color: white;
-            padding: 20px 0;
+            padding: 20px;
             text-align: center;
+        }
+        .header-image {
+            width: 40%; /* Réduit encore la taille de l'image */
+            height: auto;
+            display: block;
+            margin: 20px auto; /* Centre l'image */
         }
         nav {
             background-color: #444;
@@ -139,6 +145,9 @@
         }
 
         @media (max-width: 600px) {
+            .header-image {
+                width: 80%; /* Ajuste la taille de l'image pour les petits écrans */
+            }
             header, nav, .intro, .feature, .product {
                 padding: 10px;
                 font-size: 16px;
@@ -159,6 +168,8 @@
     <p><span style="color: darkcoral; font-weight: bold;">Découvrez nos puffs 10K et 16K à des prix imbattables !</span></p>
     <p><span style="color: lightcoral; font-weight: bold;">Pour commander, c'est simple ! Cliquez sur "Ajouter au panier". <br> Puis, demandez dans la discussion la quantité et le type de puff que vous souhaitez :)</span></p>
 </header>
+
+<img src="https://i.imgur.com/c3I9HVd.png" alt="Smoke Paradise" class="header-image">
 
 <nav>
     <a href="index.html">Accueil</a>
@@ -219,7 +230,7 @@
         s1.src = 'https://embed.tawk.to/67af80f27aa8c6190f55af38/1ik2ovdcu';
         s1.charset = 'UTF-8';
         s1.setAttribute('crossorigin', '*');
-        s0.parentNode.insertBefore(s1, s0);
+        s0.parentNode.insertBefore(s1,s0);
     })();
 </script>
 <!-- End of Tawk.to Script -->
