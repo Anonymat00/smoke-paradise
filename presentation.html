@@ -6,7 +6,7 @@
     <title>Accueil - Smoke Paradise</title>
     <meta property="og:title" content="Smoke Paradise">
     <meta property="og:description" content="Découvrez nos puffs 10K et 16K à des prix imbattables !">
- 
+
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -133,6 +133,21 @@
             .product {
                 width: 100%;
             }
+            .video-container video {
+                width: 100%;
+            }
+        }
+        .video-container {
+            margin: 40px auto;
+            text-align: center;
+            max-width: 80%;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2);
+            overflow: hidden;
+        }
+        .video-container video {
+            width: 100%;
+            border-radius: 15px;
         }
     </style>
 </head>
@@ -141,8 +156,6 @@
 <header>
     Smoke Paradise
 </header>
-
-
 
 <nav>
     <a href="index.html">Accueil</a>
@@ -154,7 +167,6 @@
 <section class="intro">
     <h2>Bienvenue à Smoke Paradise</h2>
     <p><strong> Présentation des puffs !</strong></p>
-    
 </section>
 
 <section class="product-container">
@@ -190,6 +202,13 @@
         <button class="nav-button" onclick="prevSlide()">&#10094;</button>
         <button class="nav-button" onclick="nextSlide()">&#10095;</button>
     </div>
+</section>
+
+<section class="video-container">
+    <video controls>
+        <source src="Videopuff.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la balise vidéo.
+    </video>
 </section>
 
 <script>
