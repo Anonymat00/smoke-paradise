@@ -39,39 +39,21 @@
         section {
             padding: 40px 20px;
         }
-        .contact-form {
+        .contact-box {
             max-width: 600px;
             margin: auto;
             background: #1e1e1e;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2);
+            text-align: center;
         }
-        form input,
-        form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #333;
-            color: #fff;
-        }
-        form button {
-            background: #ffd700;
-            color: #121212;
-            padding: 12px 20px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-        form button:hover {
-            background: #e6c300;
+        .contact-box p {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 20px;
         }
         .telegram {
-            text-align: center;
             margin-top: 20px;
         }
         .telegram a {
@@ -82,38 +64,15 @@
         .telegram a:hover {
             text-decoration: underline;
         }
-        .success-message {
-            display: none;
-            color: green;
-            text-align: center;
-            font-size: 18px;
+        .help-message {
             margin-top: 20px;
-        }
-        .info-message {
-            text-align: center;
-            margin-top: 10px;
-            font-size: 14px;
-            color: #ccc;
-        }
-        .warning-message {
-            display: none;
-            color: red;
-            text-align: center;
             font-size: 16px;
-            margin-top: 10px;
+            color: #ffd700;
         }
         @media (max-width: 600px) {
-            header, nav, .contact-form, form input, form textarea, form button {
+            header, nav, .contact-box {
                 padding: 10px;
                 font-size: 16px;
-            }
-            form input,
-            form textarea {
-                padding: 8px;
-                margin: 8px 0;
-            }
-            form button {
-                padding: 8px 12px;
             }
         }
     </style>
@@ -132,31 +91,13 @@
 </nav>
 
 <section>
-    <div class="contact-form">
-        <form id="contact-form">
-            <label for="name">Nom</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-
-            <button type="submit">Envoyer</button>
-        </form>
-        <div class="success-message" id="success-message">
-            Envoi réussi ! Patientez pour recevoir une réponse.
-        </div>
-        <div class="info-message">
-            Vous pouvez envoyer un e-mail par jour.
-        </div>
-        <div class="warning-message" id="warning-message">
-            ❗ Attention : Vous ne pouvez envoyer qu'un seul e-mail par jour.
-        </div>
+    <div class="contact-box">
+        <p>Pour nous rejoindre sur Telegram, cliquez sur le lien bleu ci-dessous.</p>
         <div class="telegram">
-            <p>Ou contactez-nous directement via Telegram :</p>
             <a href="https://t.me/+kOQ7VCrC-_tjNGZk">Cliquez ici pour nous rejoindre sur Telegram</a>
+        </div>
+        <div class="help-message">
+            Besoin d'aide ? Envoyez-nous un message en utilisant la bulle en bas à droite.
         </div>
     </div>
 </section>
@@ -174,50 +115,6 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!-- Fin du script Tawk.to -->
-
-<!-- Début du script EmailJS -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script type="text/javascript">
-    (function(){
-        emailjs.init('EIpPlS7fwgjzdMk9c'); // Utilisation de votre Public Key EmailJS
-    })();
-
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-
-        const lastSent = localStorage.getItem('lastSent');
-        const today = new Date().toISOString().slice(0, 10);
-
-        if (lastSent && lastSent === today) {
-            document.getElementById('warning-message').style.display = 'block';
-            return;
-        }
-
-        emailjs.send('service_ivmqhfg', 'template_2dpzg8m', {
-            from_name: name,
-            from_email: email,
-            message: message
-        })
-        .then(function(response) {
-            document.getElementById('success-message').style.display = 'block';
-            localStorage.setItem('lastSent', today);
-
-            // Envoyer un e-mail de réponse automatique au client
-            emailjs.send('service_ivmqhfg', 'template_2dpzg8m', {
-                to_name: name,
-                to_email: email,
-                reply_message: 'Merci de nous avoir contactés. Nous vous répondrons dans les plus brefs délais.'
-            });
-        }, function(error) {
-            alert('Une erreur est survenue lors de l\'envoi du message : ' + JSON.stringify(error));
-        });
-    });
-</script>
-<!-- Fin du script EmailJS -->
 
 </body>
 </html>
