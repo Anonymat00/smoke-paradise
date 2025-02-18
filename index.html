@@ -25,6 +25,7 @@
             font-size: 24px;
             font-weight: bold;
             text-transform: uppercase;
+            position: relative;
         }
         .header-image {
             width: 40%;
@@ -32,6 +33,30 @@
             display: block;
             margin: 30px auto;
             border-radius: 15px;
+        }
+        .promotion-bar {
+            background: #ffd700;
+            color: #121212;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            border-radius: 5px;
+        }
+        .countdown {
+            display: flex;
+            gap: 5px;
+        }
+        .countdown span {
+            background: #121212;
+            color: #ffd700;
+            padding: 5px 10px;
+            border-radius: 3px;
         }
         nav {
             background: #222;
@@ -114,6 +139,16 @@
     Smoke Paradise
 </header>
 
+<div class="promotion-bar">
+    Promotions en cours ! 
+    <div class="countdown" id="countdown">
+        <span id="days">0j</span>
+        <span id="hours">0h</span>
+        <span id="minutes">0m</span>
+        <span id="seconds">0s</span>
+    </div>
+</div>
+
 <img src="https://i.imgur.com/c3I9HVd.png" alt="Smoke Paradise" class="header-image">
 
 <nav>
@@ -121,13 +156,12 @@
     <a href="presentation.html">Présentation</a>
     <a href="gallerie.html">Galerie</a>
     <a href="contact.html">Contact</a>
-   
 </nav>
 
 <section class="intro">
     <h2>Bienvenue à Smoke Paradise</h2>
-    <p> <strong> Découvrez nos puffs 10K et 16K à des prix imbattables !</p> </strong>
-    <p> <strong> Pour commander, c'est simple ! Cliquez sur "Ajouter au panier".<br>Puis, demandez dans la discussion la quantité et le type de puff que vous souhaitez :)</p> </strong>
+    <p><strong>Découvrez nos puffs 10K et 16K à des prix imbattables !</strong></p>
+    <p><strong>Pour commander, c'est simple ! Cliquez sur "Ajouter au panier".<br>Puis, demandez dans la discussion la quantité et le type de puff que vous souhaitez :)</strong></p>
 </section>
 
 <section class="product-container">
@@ -149,6 +183,29 @@
         var tawkUrl = "https://tawk.to/chat/67af80f27aa8c6190f55af38/1ik2ovdcu?text=" + message;
         window.location.href = tawkUrl;
     }
+
+    function startCountdown(duration) {
+        const countdown = document.getElementById('countdown');
+        const endTime = new Date().getTime() + duration * 1000;
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const timeLeft = endTime - now;
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            countdown.querySelector('#days').textContent = `${days}j`;
+            countdown.querySelector('#hours').textContent = `${hours}h`;
+            countdown.querySelector('#minutes').textContent = `${minutes}m`;
+            countdown.querySelector('#seconds').textContent = `${seconds}s`;
+            if (timeLeft < 0) {
+                clearInterval(interval);
+                countdown.textContent = 'Promotions terminées !';
+            }
+        }
+        const interval = setInterval(updateCountdown, 1000);
+    }
+    startCountdown(7 * 24 * 60 * 60);
 </script>
 </body>
 </html>
