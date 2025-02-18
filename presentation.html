@@ -3,64 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smoke Paradise </title>
+    <title>Accueil - Smoke Paradise</title>
+    <meta property="og:title" content="Smoke Paradise">
+    <meta property="og:description" content="Découvrez nos puffs 10K et 16K à des prix imbattables !">
+    <meta property="og:image" content="https://i.imgur.com/c3I9HVd.png">
+    <meta property="og:url" content="https://votresite.com">
+    <meta property="og:type" content="website">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
+            background-color: #121212;
+            color: #fff;
         }
         header {
-            background-color: #333;
-            color: white;
-            padding: 20px;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            color: #ffd700;
+            padding: 40px 20px;
             text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .header-image {
+            width: 40%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border-radius: 15px;
         }
         nav {
-            background-color: #444;
-            color: white;
-            padding: 10px;
+            background: #222;
+            padding: 15px;
             text-align: center;
         }
         nav a {
-            color: white;
+            color: #ffd700;
             margin: 0 15px;
             text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #fff;
         }
         section {
-            padding: 20px;
-        }
-        .intro {
+            padding: 40px 20px;
             text-align: center;
-            margin-bottom: 40px;
         }
         .intro h2 {
-            font-size: 36px;
-            color: #444;
+            font-size: 38px;
+            color: #ffd700;
         }
         .intro p {
             font-size: 18px;
-            color: #666;
+            color: #ccc;
         }
-        .carousel {
+        .product-container {
             position: relative;
             width: 100%;
-            max-width: 400px;
-            margin: auto;
+            max-width: 500px;
+            margin: 0 auto;
             overflow: hidden;
         }
-        .carousel-images {
+        .product-slide {
             display: flex;
-            transition: transform 0.5s ease-in-out;
+            transition: transform 0.5s ease;
         }
-        .carousel-images img {
+        .product {
+            background: #1e1e1e;
+            padding: 20px;
+            margin: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2);
+            text-align: center;
             width: 100%;
-            height: auto;
-            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        .carousel-buttons {
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(255, 215, 0, 0.4);
+        }
+        .product h3 {
+            font-size: 22px;
+            color: #ffd700;
+        }
+        .product p {
+            font-size: 16px;
+            color: #ccc;
+        }
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .product-description {
+            padding: 15px;
+            background: #333;
+            border-radius: 8px;
+            margin-top: 10px;
+            text-align: left;
+        }
+        .product-description ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .product-description ul li {
+            color: #ffd700;
+        }
+        .nav-buttons {
             position: absolute;
             top: 50%;
             width: 100%;
@@ -68,52 +119,20 @@
             justify-content: space-between;
             transform: translateY(-50%);
         }
-        .carousel-buttons button {
-            background-color: rgba(0,0,0,0.5);
-            color: white;
+        .nav-button {
+            background: rgba(255, 215, 0, 0.7);
             border: none;
-            padding: 10px;
+            padding: 15px;
             cursor: pointer;
-            font-size: 24px;
+            color: #121212;
+            font-size: 20px;
+            border-radius: 50%;
         }
-        .carousel-buttons button:hover {
-            background-color: rgba(0,0,0,0.7);
+        .nav-button:hover {
+            background: rgba(255, 215, 0, 1);
         }
-        .features {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-        .feature {
-            background-color: white;
-            padding: 20px;
-            margin: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            text-align: center;
-            width: 300px;
-        }
-        .feature h3 {
-            font-size: 24px;
-            margin: 10px 0;
-            color: #444;
-        }
-        .feature p {
-            font-size: 16px;
-            color: #666;
-        }
-        ul {
-            text-align: left;
-            padding-left: 20px;
-        }
-
         @media (max-width: 600px) {
-            header, nav, .intro, .feature {
-                padding: 10px;
-                font-size: 16px;
-            }
-            .feature {
+            .product {
                 width: 100%;
             }
         }
@@ -122,9 +141,10 @@
 <body>
 
 <header>
-    <h1>Smoke Paradise</h1>
-    <p>   <p><span style="color: darkcoral; font-weight: bold;"> Découvrez nos puffs 10K et 16K à des prix imbattables !</p>
+    Smoke Paradise
 </header>
+
+<img src="https://i.imgur.com/c3I9HVd.png" alt="Smoke Paradise" class="header-image">
 
 <nav>
     <a href="index.html">Accueil</a>
@@ -135,67 +155,73 @@
 
 <section class="intro">
     <h2>Bienvenue à Smoke Paradise</h2>
-    <p>Chez Puff Paradise, nous nous engageons à offrir des produits de qualité supérieure qui redéfinissent l'expérience du vapotage. <br> <br> Découvrez nos puffs 10K et 16K, conçus pour les amateurs de vapotage les plus exigeants.</p>
+    <p><strong>Découvrez nos puffs 10K et 16K à des prix imbattables !</strong></p>
+    <p><strong>Pour commander, c'est simple ! Demandez dans la discussion la quantité et le type de puff que vous souhaitez :)</strong></p>
 </section>
 
-<section class="carousel">
-    <div class="carousel-images">
-        <img src="10.jpg?ex=67b0c212&is=67af7092&hm=b40e4e518123ea8fc63a391973d543e64370d5170bfa22e8d98bf7718c981741&" alt="Puff 10K">
-        <img src="16k.jpg?ex=67b0c209&is=67af7089&hm=dc277997f29d7cd5bd009df599e1c9a2736d2be4837bb22574af7a44caff1793&" alt="Puff 16K">
+<section class="product-container">
+    <div class="product-slide">
+        <div class="product" id="product1">
+            <img src="10.jpg" alt="Puff 10K">
+            <h3>Puff 10K</h3>
+            <div class="product-description">
+                <p><strong>Caractéristiques :</strong></p>
+                <ul>
+                    <li>10 000 bouffées par unité</li>
+                    <li>Batterie longue durée</li>
+                    <li>Disponible en plusieurs saveurs : Fraise, Mangue, Menthe, Fruit de la passion</li>
+                </ul>
+                <p><strong>Notre engagement :</strong> Un produit respectueux de l'environnement, facile à transporter et conçu pour une expérience de vapotage optimale.</p>
+            </div>
+        </div>
+        <div class="product" id="product2" style="display:none;">
+            <img src="16k.jpg" alt="Puff 16K">
+            <h3>Puff 16K</h3>
+            <div class="product-description">
+                <p><strong>Caractéristiques :</strong></p>
+                <ul>
+                    <li>16 000 bouffées par unité</li>
+                    <li>Design ergonomique et élégant</li>
+                    <li>Disponible en saveurs : Banane, Pastèque, Pomme verte, Cassis</li>
+                </ul>
+                <p><strong>Notre engagement :</strong> Un produit durable, offrant des performances exceptionnelles à chaque utilisation.</p>
+            </div>
+        </div>
     </div>
-    <div class="carousel-buttons">
-        <button onclick="moveCarousel(-1)">&#10094;</button>
-        <button onclick="moveCarousel(1)">&#10095;</button>
-    </div>
-</section>
-
-<section class="features">
-    <div class="feature">
-        <h3>Puff 10K</h3>
-        <p>Avec le Puff 10K, découvrez une nouvelle dimension de saveurs. Profitez de la qualité premium avec une capacité incroyable de 10 000 bouffées, idéale pour ceux qui recherchent un produit durable et performant.</p>
-        <p>✨ <strong>Caractéristiques :</strong></p>
-        <ul>
-            <li>10 000 bouffées par unité</li>
-            <li>Batterie longue durée</li>
-            <li>Disponible en plusieurs saveurs exquises :</li>
-            <ul>
-                <li>Fraise</li>
-                <li>Mangue</li>
-                <li>Menthe</li>
-                <li>Fruit de la passion</li>
-            </ul>
-        </ul>
-    </div>
-    <div class="feature">
-        <h3>Puff 16K</h3>
-        <p>Découvrez l'excellence avec le Puff 16K, conçu pour offrir une expérience de vapotage inégalée. Avec ses 16 000 bouffées, ce produit révolutionnaire est parfait pour ceux qui ne veulent jamais s'arrêter.</p>
-        <p>✨ <strong>Caractéristiques :</strong></p>
-        <ul>
-            <li>16 000 bouffées par unité</li>
-            <li>Design ergonomique et élégant</li>
-            <li>Choix varié de saveurs irrésistibles :</li>
-            <ul>
-                <li>Banane</li>
-                <li>Pastèque</li>
-                <li>Pomme verte</li>
-                <li>Cassis</li>
-            </ul>
-        </ul>
+    <div class="nav-buttons">
+        <button class="nav-button" onclick="prevSlide()">&#10094;</button>
+        <button class="nav-button" onclick="nextSlide()">&#10095;</button>
     </div>
 </section>
 
 <script>
-let currentSlide = 0;
+    let currentIndex = 0;
+    const products = document.querySelectorAll('.product');
 
-function moveCarousel(direction) {
-    const carousels = document.querySelectorAll('.carousel-images');
-    carousels.forEach(carousel => {
-        const slides = carousel.children;
-        currentSlide = (currentSlide + direction + slides.length) % slides.length;
-        const offset = -currentSlide * slides[0].clientWidth;
-        carousel.style.transform = `translateX(${offset}px)`;
-    });
-}   
+    function showSlide(index) {
+        if (index >= products.length) {
+            currentIndex = 0;
+        } else if (index < 0) {
+            currentIndex = products.length - 1;
+        } else {
+            currentIndex = index;
+        }
+
+        products.forEach((product, i) => {
+            product.style.display = (i === currentIndex) ? 'block' : 'none';
+        });
+    }
+
+    function nextSlide() {
+        showSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+        showSlide(currentIndex - 1);
+    }
+
+    // Show the first slide initially
+    showSlide(currentIndex);
 </script>
 
 </body>

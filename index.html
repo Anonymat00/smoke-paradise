@@ -11,36 +11,45 @@
     <meta property="og:type" content="website">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            background-color: #121212;
+            color: #fff;
         }
         header {
-            background-color: #333;
-            color: white;
-            padding: 20px;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            color: #ffd700;
+            padding: 40px 20px;
             text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
         }
         .header-image {
-            width: 40%; /* Réduit encore la taille de l'image */
+            width: 40%;
             height: auto;
             display: block;
-            margin: 20px auto; /* Centre l'image */
+            margin: 30px auto;
+            border-radius: 15px;
         }
         nav {
-            background-color: #444;
-            color: white;
-            padding: 10px;
+            background: #222;
+            padding: 15px;
             text-align: center;
         }
         nav a {
-            color: white;
+            color: #ffd700;
             margin: 0 15px;
             text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #fff;
         }
         section {
-            padding: 20px;
+            padding: 40px 20px;
             text-align: center;
         }
         .product-container {
@@ -49,113 +58,51 @@
             flex-wrap: wrap;
         }
         .product {
-            background-color: white;
+            background: #1e1e1e;
             padding: 20px;
-            margin: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2);
             text-align: center;
-            width: 250px;
+            width: 280px;
             max-width: 100%;
-            position: relative;
-            background-size: cover;
-            background-position: center;
-            overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .product h3 {
-            margin: 0;
-            font-size: 24px;
-            color: black;
-            position: relative;
-            z-index: 10;
-            background: rgba(255, 255, 255, 0.8);
-            width: 100%;
-            padding: 10px 0;
-        }
-        .product button {
-            padding: 10px 15px;
-            background-color: #333;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            z-index: 10;
-            position: relative;
-            margin-top: 20px;
-        }
-        .product button:hover {
-            background-color: #444;
-        }
-        .product img {
-            width: 100%;
-            border-radius: 5px;
-            transition: transform 0.3s;
         }
         .product:hover {
             transform: translateY(-10px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 15px rgba(255, 215, 0, 0.4);
         }
-        .product img:hover {
-            transform: scale(1.05);
+        .product h3 {
+            font-size: 22px;
+            color: #ffd700;
         }
-        .intro {
-            text-align: center;
-            margin-bottom: 40px;
+        .product button {
+            padding: 12px 20px;
+            background: #ffd700;
+            color: #121212;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .product button:hover {
+            background: #e6c300;
+        }
+        .product img {
+            width: 100%;
+            border-radius: 10px;
         }
         .intro h2 {
-            font-size: 36px;
-            color: #444;
+            font-size: 38px;
+            color: #ffd700;
         }
         .intro p {
             font-size: 18px;
-            color: #666;
+            color: #ccc;
         }
-        .features {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-        .feature {
-            background-color: white;
-            padding: 20px;
-            margin: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            text-align: center;
-            width: 300px;
-            max-width: 100%;
-        }
-        .feature img {
-            width: 100%;
-            border-radius: 5px;
-            transition: transform 0.3s;
-        }
-        .feature h3 {
-            font-size: 24px;
-            margin: 10px 0;
-            color: #444;
-        }
-        .feature p {
-            font-size: 16px;
-            color: #666;
-        }
-        .feature:hover img {
-            transform: scale(1.05);
-        }
-
         @media (max-width: 600px) {
-            .header-image {
-                width: 80%; /* Ajuste la taille de l'image pour les petits écrans */
-            }
-            header, nav, .intro, .feature, .product {
-                padding: 10px;
-                font-size: 16px;
-            }
             .product {
-                width: 100%;
-            }
-            .feature {
                 width: 100%;
             }
         }
@@ -164,9 +111,7 @@
 <body>
 
 <header>
-    <h1>Smoke Paradise</h1>
-    <p><span style="color: darkcoral; font-weight: bold;">Découvrez nos puffs 10K et 16K à des prix imbattables !</span></p>
-    <p><span style="color: lightcoral; font-weight: bold;">Pour commander, c'est simple ! Cliquez sur "Ajouter au panier". <br> Puis, demandez dans la discussion la quantité et le type de puff que vous souhaitez :)</span></p>
+    Smoke Paradise
 </header>
 
 <img src="https://i.imgur.com/c3I9HVd.png" alt="Smoke Paradise" class="header-image">
@@ -180,60 +125,29 @@
 
 <section class="intro">
     <h2>Bienvenue à Smoke Paradise</h2>
-    <p>Découvrez nos puffs 10K et 16K à des prix imbattables !</p>
-</section>
-
-<section class="features">
-    <div class="feature">
-        <img src="10.jpg" alt="Puff 10K">
-        <h3>Puff 10K</h3>
-        <p>Profitez de notre Puff 10K avec ses saveurs uniques et son design élégant.</p>
-    </div>
-    <div class="feature">
-        <img src="16k.jpg" alt="Puff 16K">
-        <h3>Puff 16K</h3>
-        <p>Dégustez notre Puff 16K avec sa capacité impressionnante et ses saveurs variées.</p>
-    </div>
+    <p> <strong> Découvrez nos puffs 10K et 16K à des prix imbattables !</p> </strong>
+    <p> <strong> Pour commander, c'est simple ! Cliquez sur "Ajouter au panier".<br>Puis, demandez dans la discussion la quantité et le type de puff que vous souhaitez :)</p> </strong>
 </section>
 
 <section class="product-container">
-    <div class="product" id="product10k">
+    <div class="product">
         <img src="10.jpg" alt="Puff 10K">
         <h3>Puff 10K</h3>
-        <button onclick="redirectToTawk('JNR 10k');">
-            Ajouter au panier
-        </button>
+        <button onclick="redirectToTawk('JNR 10k');">Ajouter au panier</button>
     </div>
-    <div class="product" id="product16k">
+    <div class="product">
         <img src="16k.jpg" alt="Puff 16K">
         <h3>Puff 16K</h3>
-        <button onclick="redirectToTawk('JNR 16k');">
-            Ajouter au panier
-        </button>
+        <button onclick="redirectToTawk('JNR 16k');">Ajouter au panier</button>
     </div>
 </section>
 
-<script type="text/javascript">
+<script>
     function redirectToTawk(product) {
-        var message = encodeURIComponent("Catégorie puff : " + product + " - si vous voulez rajouter des puffs communiquer dans cette discussion pour préciser vos choix.");
-        var tawkUrl = "https://tawk.to/chat/67af80f27aa8c6190f55af38/1ik2ovdcu?text=" + message + "&welcomeMessage=" + message;
+        var message = encodeURIComponent("Catégorie puff : " + product);
+        var tawkUrl = "https://tawk.to/chat/67af80f27aa8c6190f55af38/1ik2ovdcu?text=" + message;
         window.location.href = tawkUrl;
     }
 </script>
-
-<!-- Start of Tawk.to Script -->
-<script type="text/javascript">
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function(){
-        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = 'https://embed.tawk.to/67af80f27aa8c6190f55af38/1ik2ovdcu';
-        s1.charset = 'UTF-8';
-        s1.setAttribute('crossorigin', '*');
-        s0.parentNode.insertBefore(s1,s0);
-    })();
-</script>
-<!-- End of Tawk.to Script -->
-
 </body>
 </html>
